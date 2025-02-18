@@ -26,7 +26,7 @@ model = genai.GenerativeModel(
 )
 
 # Streamlit App
-st.title("Job Recommendation AI Agent")
+st.title("Job Reference Bot")
 st.write("Enter your skills, interests, and location to get personalized job recommendations.")
 
 # User Input
@@ -35,7 +35,7 @@ interests = st.text_input("Enter your interests (e.g., Data Science, AI):")
 location = st.text_input("Enter your preferred location (e.g., New York, Remote):")
 
 # Generate Job Recommendations
-if st.button("Get Job Recommendations"):
+if st.button("Get Job References"):
     if skills and interests and location:
         # Create a prompt for Gemini
         prompt = f"""
@@ -52,6 +52,7 @@ if st.button("Get Job Recommendations"):
 
         # Display recommendations
         st.write("### Job Recommendations:")
+        
         st.write(response.text)
     else:
         st.error("Please fill in all fields (skills, interests, location).")
